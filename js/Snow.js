@@ -8,6 +8,7 @@ window.onload = function(){
     var can = document.getElementById("canvas");
     can.width = winW;
     can.height = winH;
+    can.style.cssText = "position:fixed; top:0; left:0; z-index:-1;";
     var cxt = can.getContext("2d");
 
     //设置雪花数量 位置
