@@ -1,4 +1,3 @@
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -60,6 +59,16 @@
             <li><a href="others/others.html"><i class="iconfont">&#xe607;</i><span>others</span></a></li>
         </ul>
     </nav>
+    <!-- mobile nav  -->
+    <div class="mobNav">
+        <div class="mobBtn">&clubs;</div>
+        <div class="mobList">
+            <nav class="mobItem">HTML</nav>
+            <nav class="mobItem">JS/JQ</nav>
+            <nav class="mobItem">HTML5</nav>
+            <nav class="mobItem">Others</nav>
+        </div>
+    </div>
     <!--main start-->
     <main class="container">
         <!--music start -->
@@ -89,7 +98,7 @@
             </div>-->
         </div>
         <!--mobile effect start-->
-        <div class="introduce" data-text="徐莫庭，是顾西爵小说《最美遇见你》的男主角，英俊清冷，文质彬彬，睿智而严谨，外交系老大。他是天之骄子，只有他自己知道，在那年那个一眼，他遇见了今生的唯一——李安宁，他的这一生才真正圆满。">
+        <div class="introduce" data-text="当你觉得自己又丑又穷的时候，不要悲伤，至少你的判断是对的。生活不止眼前的苟且，还有读不懂的诗和到不了的远方。出卖自己的灵魂和原则并不丢人，丢人的是没能卖一个好价钱。又过去了一天，今天过得怎样，是不是离梦想又远了一些。">
         </div>
         <!--<div class="con-wrap">
             <div class="fl bigShow">
@@ -135,4 +144,3 @@
         $svg.drawsvg('animate');
     </script>
 </body>
-
