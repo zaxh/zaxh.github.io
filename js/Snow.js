@@ -12,7 +12,7 @@ window.onload = function(){
     var cxt = can.getContext("2d");
 
     //设置雪花数量 位置
-    var num = 1000;
+    var num = 500;
     var par = []; //装雪花
 
     if( winW<640 ){
