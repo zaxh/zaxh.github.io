@@ -581,8 +581,8 @@ audio{
         transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
     }
 }
-/* introduce start */
-.introduce{
+/* 手机适配 隐藏 start */
+.introduce,.mobNav{
     display: none;
 }
 .con-wrap{
