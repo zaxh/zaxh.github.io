@@ -783,8 +783,8 @@ audio{
     height: 30px;
 }
 /*手机适配*/
-@media screen and ( max-width: 768px ) {
-    nav.cd-3d-nav-container .cd-3d-div li a>i{
+@media screen and ( max-width: 640px ) {
+    nav.cd-3d-nav-container .cd-3d-div li a>i,.cd-3d-nav-trigger,#heart,.con-wrap,.mobNav{
         display: none;
     }
     nav.cd-3d-nav-container .cd-3d-div li a>span {
@@ -792,16 +792,10 @@ audio{
         width: 100%;
         height: 100%;
     }
-    #heart{
-        display: none;
-    }
-    .con-wrap{
-        display: none;
-    }
     .introduce{
         display: block;
         position: absolute;
-        bottom: 90px;
+        top: 40%;
         left: 0;
         right: 0;
         margin: auto;
@@ -811,5 +805,53 @@ audio{
         font-weight: bold;
         letter-spacing: 2px;
         text-shadow: 0 0 10px #c72ead;
+        z-index: 99;
+    }
+    .mobNav{
+        display: block;
+        position: absolute;
+        top: 25%;
+        left: 0;
+        right: 0;
+        width: 80%;
+        margin: 0 auto;
+        z-index: 100;
+    }
+    .mobNav .mobBtn{
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        border-radius: 50%;
+        font-size: 36px;
+        color: #000;
+        background: rgba(255,255,255,.7);
+        margin: 0 auto;
+    }
+    .mobNav .mobList{
+        display: none;
+        width: 100%;
+        height: 215px;
+        background: rgba(255,255,255,.9);
+        border-radius: 10px;
+        margin-top: 5px;
+        overflow: hidden;
+    }
+    .mobNav .mobList .mobItem{
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        color: #fff;
+        font-size: 20px;
+        border-radius: 10px;
+        background: rgba(0, 0, 0, 0.85);
+        margin: 5px auto;
+    }
+    .mobNav .mobList .mobItem:nth-child(1){
+        margin-top: 0;
+    }
+    .mobNav .mobList .mobItem:nth-child(4){
+        margin-bottom: 0;
     }
 }
