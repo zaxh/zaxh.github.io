@@ -53,20 +53,20 @@
     <nav class="container-fluid cd-3d-nav-container">
         <ul class="cd-3d-div">
             <li class="cd-selected"><a href="#"><i class="iconfont">&#xe657;</i><span>home</span></a></li>
-            <li><a href="#"><i class="iconfont">&#xe638;</i><span>html</span></a></li>
-            <li><a href="#"><i class="iconfont">&#xe619;</i><span>js/jq</span></a></li>
-            <li><a href="#"><i class="iconfont">&#xe66b;</i><span>html5</span></a></li>
-            <li><a href="others/others.html"><i class="iconfont">&#xe607;</i><span>others</span></a></li>
+            <li><a href="#" target="_blank"><i class="iconfont">&#xe638;</i><span>html</span></a></li>
+            <li><a href="#" target="_blank"><i class="iconfont">&#xe619;</i><span>js/jq</span></a></li>
+            <li><a href="#" target="_blank"><i class="iconfont">&#xe66b;</i><span>html5</span></a></li>
+            <li><a href="others/others.html" target="_blank"><i class="iconfont">&#xe607;</i><span>others</span></a></li>
         </ul>
     </nav>
     <!-- mobile nav  -->
     <div class="mobNav">
         <div class="mobBtn">&clubs;</div>
         <div class="mobList">
-            <nav class="mobItem">HTML</nav>
-            <nav class="mobItem">JS/JQ</nav>
-            <nav class="mobItem">HTML5</nav>
-            <nav class="mobItem">Others</nav>
+            <nav class="mobItem"><a href="#" target="_blank">HTML</a></nav>
+            <nav class="mobItem"><a href="#" target="_blank">JS/JQ</a></nav>
+            <nav class="mobItem"><a href="#" target="_blank">HTML5</a></nav>
+            <nav class="mobItem"><a href="others/others.html" target="_blank">Others</a></nav>
         </div>
     </div>
     <!--main start-->
