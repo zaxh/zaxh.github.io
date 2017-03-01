@@ -102,9 +102,8 @@ $(function(){
 /***** 手机适配 introduce 文字打印机效果显示 **************************************/
 $(function(){
     var $text = $(".introduce").attr("data-text");
-    var len = $text.length;
-    var arr = [];
-    var t = 0;
+    var arr_text = $text.split("。");
+    var i = 0,j = 0;
     var timer = null;
     var w = window.innerWidth;
 
@@ -112,18 +111,26 @@ $(function(){
         clearInterval( timer );
     }
 
-    for( var i=0; i<len; i++){
-        arr[i] = $text.substr( i , 1 );
-    }
-    function Write(){
-        if( t<len ){
-            $(".introduce").append( arr[t] );
-            t++;
+    timer = setInterval( function(){
+        if(i<arr_text.length){
+            if(j<arr_text[i].length){
+                $(".introduce").append( arr_text[i].substr( j , 1 ) ) ;
+                j++;
+            }else{
+                j = 0;
+                i++;
+                $(".introduce").append("<br />") ;
+            }
         }else{
             clearInterval( timer );
         }
-    }
-    timer = setInterval( Write , 200 );
+    } , 200 );
+});
+/**************** 手机适配 菜单点击 *********************************/
+$(function(){
+    $(".mobNav .mobBtn").click(function(){
+       $(".mobNav .mobList").slideToggle(1000);
+    });
 });
 /***************照片显示效果************************************************************/
 $(function(){
