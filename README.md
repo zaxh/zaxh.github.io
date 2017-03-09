@@ -64,7 +64,7 @@
         <div class="mobBtn">&clubs;</div>
         <div class="mobList">
             <nav class="mobItem"><a href="#" target="_blank">HTML</a></nav>
-            <nav class="mobItem"><a href="#" target="_blank">JS/JQ</a></nav>
+            <nav class="mobItem"><a href="case/case.html" target="_blank">JS/JQ</a></nav>
             <nav class="mobItem"><a href="#" target="_blank">HTML5</a></nav>
             <nav class="mobItem"><a href="others/others.html" target="_blank">Others</a></nav>
         </div>
