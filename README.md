@@ -54,7 +54,7 @@
         <ul class="cd-3d-div">
             <li class="cd-selected"><a href="#"><i class="iconfont">&#xe657;</i><span>home</span></a></li>
             <li><a href="#" target="_blank"><i class="iconfont">&#xe638;</i><span>html</span></a></li>
-            <li><a href="#" target="_blank"><i class="iconfont">&#xe619;</i><span>js/jq</span></a></li>
+            <li><a href="case/case.html" target="_blank"><i class="iconfont">&#xe619;</i><span>js/jq</span></a></li>
             <li><a href="#" target="_blank"><i class="iconfont">&#xe66b;</i><span>html5</span></a></li>
             <li><a href="others/others.html" target="_blank"><i class="iconfont">&#xe607;</i><span>others</span></a></li>
         </ul>
