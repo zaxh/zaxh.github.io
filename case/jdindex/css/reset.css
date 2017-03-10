@@ -1,0 +1,125 @@
+html{
+    font-family: "Helvetica Neue",Helvetica,sans-serif;
+    /*font-size:62.5%;*/
+    /*谷歌浏览器最小字体12px*/
+    -webkit-text-size-adjust: 100%;/*100%,none 关闭字体大小自动调整功能*/
+    /*a标签及拥有 :active 伪类的元素去除高亮显示的效果*/
+    -webkit-tap-highlight-color: transparent;
+    /*禁止文本被选中*/
+    -webkit-user-select: none;
+}
+body{
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;/*开启mobile网页快速滚动和回弹的效果*/
+    overflow-scrolling: touch;
+}
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+a{
+    color:#333;
+    text-decoration: none;
+}
+img{
+    border: none;
+    display: block;
+    vertical-align: middle;
+}
+i,em{
+    font-style: normal;
+}
+input{
+    -webkit-appearance: none;/*清除默认属性*/
+    outline: none;
+    border: none;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float:right;
+}
+.clearfix:after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0;
+    clear: both;
+}
+li,ol{
+    list-style: none;
+}
+.jd-sprite-icon{
+    display: block;
+    background: url("../img/jd-sprites.png") no-repeat;  /*定位/尺寸(w,h)  200px 200px/200px 200px*/
+    background-size:200px 200px;
+}
+.search-sprites{
+    display: block;
+    background: url("../img/search-sprites.png") no-repeat;
+    background-size: 50px 50px;
+}
+.floor:after{
+    display: block;
+    content: "";
+    height: 0;
+    width: 100%;
+    clear: both;
+}
+.bdr-r{
+    position: relative;
+}
+.bdr-r:after{
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: "";
+    width: 1px;
+    height: 100%;
+    background: #ecebeb;
+}
+.bdr-bottom{
+    position: relative;
+}
+.bdr-bottom:after{
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #ecebeb;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
