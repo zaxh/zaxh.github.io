@@ -1,0 +1,33 @@
+.container{
+    z-index: -1;
+    margin-top: 100px;
+    padding-bottom: 100px;
+    overflow: auto;
+}
+ul{
+    width: 30%;
+    margin-top: 20px;
+}
+ul li{
+    width:100%;
+    height:40px;
+    line-height: 40px;
+    color: #fff;
+}
+ul li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid #428bca;
+}
+@media screen and (max-width: 640px) {
+    ul{
+        width: 100%;
+    }
+}
+/*滚动条样式*/
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background-color:#bee1eb; border-radius:5px;}
+::-webkit-scrollbar-thumb{background-color:#00aff0; border-radius:5px;}
+::-webkit-scrollbar-thumb:hover {background-color:#9c3}
+::-webkit-scrollbar-thumb:active {background-color:#00aff0}
