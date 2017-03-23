@@ -24,9 +24,9 @@ window.onload = function(){
             x : Math.random()*winW,
             y : Math.random()*winH,
             r : Math.random()*2+1,
-            re : Math.floor(Math.random()*255),
-            g : Math.floor(Math.random()*255),
-            b :  Math.floor(Math.random()*255),
+            re :15,// Math.floor(Math.random()*255),
+            g : 14,//Math.floor(Math.random()*255),
+            b : 236,// Math.floor(Math.random()*255),
             a : Math.random()
         });
     }
