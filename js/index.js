@@ -29,7 +29,6 @@ $(function(){
         $(this).addClass("cd-selected").siblings().removeClass("cd-selected");
     });
 });
-
 /************ music ************/
 $(function(){
     var $Audio = $("#audio");
@@ -41,7 +40,6 @@ $(function(){
     $msc.click(function(){
         if( onOff ){
             $Audio.get(0).pause();
-            //$msc.removeClass("play");
             $msc.css({
                 "-webkit-animation-play-state" : "paused",
                 "-moz-animation-play-state" : "paused",
@@ -51,7 +49,6 @@ $(function(){
             onOff = false;
         }else{
             $Audio.get(0).play();
-            //$msc.addClass("play");
             $msc.css({
                 "-webkit-animation-play-state" : "running",
                 "-moz-animation-play-state" : "running",
@@ -62,42 +59,51 @@ $(function(){
         }
     });
 });
-
-/******** heart ***********/
+/***** 日历 日期和月份获取  **************************/
 $(function(){
-    setInterval(function(){
-        $("#heart .heart-item").each(function(){
-            $(this).css({
-                "border-color" : Color()
-            });
-        });
-    } ,500);
-    //随机颜色
-    function Color(){
-        var r = Math.floor( Math.random()*255 );
-        var g = Math.floor( Math.random()*255 );
-        var b = Math.floor( Math.random()*255 );
-        return "rgb( "+ r +" , "+ g +" , "+ b +" )";
+    var date = new Date();
+    var currentDate = date.getDate();
+    var currentMonth = date.getMonth();
+    var $month = $("#calendar .month");
+    $("#calendar .date").text( currentDate );
+    switch( currentMonth ){
+        case 0:
+            $month.text("Jan");
+            break;
+        case 1:
+            $month.text("Feb");
+            break;
+        case 2:
+            $month.text("March");
+            break;
+        case 3:
+            $month.text("April");
+            break;
+        case 4:
+            $month.text("May");
+            break;
+        case 5:
+            $month.text("June");
+            break;
+        case 6:
+            $month.text("July");
+            break;
+        case 7:
+            $month.text("Aug");
+            break;
+        case 8:
+            $month.text("Sept");
+            break;
+        case 9:
+            $month.text("Oct");
+            break;
+        case 10:
+            $month.text("Nov");
+            break;
+        case 11:
+            $month.text("Dec");
+            break;
     }
-
-});
-/************ cube start ************************/
-$(function(){
-   $("#cube").hover(function(){
-       $(this).css({
-           "-webkit-animation-play-state" : "paused",
-           "-moz-animation-play-state" : "paused",
-           "-o-animation-play-state" : "paused",
-           "animation-play-state" : "paused"
-       });
-   },function(){
-       $(this).css({
-           "-webkit-animation-play-state" : "running",
-           "-moz-animation-play-state" : "running",
-           "-o-animation-play-state" : "running",
-           "animation-play-state" : "running"
-       });
-   });
 });
 /***** 手机适配 introduce 文字打印机效果显示 **************************************/
 $(function(){
@@ -130,12 +136,5 @@ $(function(){
 $(function(){
     $(".mobNav .mobBtn").click(function(){
        $(".mobNav .mobList").slideToggle(1000);
-    });
-});
-/***************照片显示效果************************************************************/
-$(function(){
-    $(".list-item").mouseenter(function(){
-        var $index = $(this).index();
-        $(".bigShow>img").attr("src" , "img/con"+ parseInt( $index+1 ) +"big.png");
     });
 });
