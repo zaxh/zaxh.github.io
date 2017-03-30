@@ -378,10 +378,7 @@ audio{
     font-weight: bold;
     text-shadow: -5px 5px 5px #000;
 }
-/* 手机适配 隐藏 start */
-.introduce,.mobNav{
-    display: none;
-}
+
 /*手机适配*/
 @media screen and ( max-width: 640px ) {
     nav.cd-3d-nav-container .cd-3d-div li a>i,.cd-3d-nav-trigger,#calendar,.mobNav{
@@ -393,7 +390,6 @@ audio{
         height: 100%;
     }
     .introduce{
-        display: block;
         position: absolute;
         top: 40%;
         left: 0;
@@ -408,7 +404,6 @@ audio{
         z-index: 99;
     }
     .mobNav{
-        display: block;
         position: absolute;
         top: 25%;
         left: 0;
