@@ -7,7 +7,7 @@
 .container .tab-wrap{
     position: fixed;
     top: 120px;
-    left: 120px;
+    left: 1rem;
     width: 150px;
     height: 100px;
     overflow: hidden;
@@ -17,7 +17,7 @@
     height: 50px;
     text-align:center;
     line-height: 50px;
-    font-size: 26px;
+    font-size: 22px;
     color: #bbb5b2;
     cursor: pointer;
     background: #444;
@@ -31,7 +31,7 @@
     font-weight: bold;
 }
 .container .con{
-    width: 30%;
+    width: 40%;
     margin: 0 auto;
     padding-top: 20px;
 }
@@ -51,8 +51,9 @@
     border-bottom: 1px solid #428bca;
 }
 @media screen and (max-width: 640px) {
-    ul{
-        width: 100%;
+    .container .con ul{
+        display: block !important;
+        visibility: visible !important;
     }
 }
 /*滚动条样式*/
