@@ -381,7 +381,7 @@ audio{
 
 /*手机适配*/
 @media screen and ( max-width: 640px ) {
-    nav.cd-3d-nav-container .cd-3d-div li a>i,.cd-3d-nav-trigger,#calendar,.mobNav{
+    nav.cd-3d-nav-container .cd-3d-div li a>i,.cd-3d-nav-trigger,#calendar{
         display: none;
     }
     nav.cd-3d-nav-container .cd-3d-div li a>span {
