@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>贪吃蛇--Canvas版</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        html,body{overflow: hidden;}
+        canvas{cursor:pointer;}
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script src="js/dot.js"></script>
+    <script src="js/snake.js"></script>
+    <script>
+        var can;
+        var cxt;
+        var dots = {
+            num: 100,
+            arrDot: []
+        };
+        function init(){
+            can = document.getElementById("canvas");
+            cxt = can.getContext("2d");
+            can.width = window.innerWidth;
+            can.height = window.innerHeight;
+            addDot();//添加小球
+            animate();//小球变化添加
+        }
+        window.onload = init;
+        function animate(){
+            //window.requestAnimationFrame( animate );
+            cxt.clearRect(0,0,can.width,can.height);
+            createDot();
+            updateDot();
+            createSnake();
+            moveSnake();
+        }
+        setInterval(animate,500);
+        document.onkeydown = function(ev){
+            ev = ev || window.event;
+            n = ev.keyCode;
+            switch(n) {
+                case 37: //left
+                    if(snake.dir !== 39){
+                        snake.dir = 37;
+                    }
+                    break;
+                case 38: //up
+                    if(snake.dir !== 40){
+                        snake.dir = 38;
+                    }
+                    break;
+                case 39: //right
+                    if(snake.dir !== 37){
+                        snake.dir = 39;
+                    }
+                    break;
+                case 40: //down
+                    if(snake.dir !== 38){
+                        snake.dir = 40;
+                    }
+                    break;
+                default:
+                    snake.dir = 39;
+                    break;
+            }
+        };
+        function isEat(){
+            for(var i=0;i<dots.arrDot.length;i++){
+                if(dots.arrDot[i][x] > snake.snakeArray[0][x] && dots.arrDot[i][x] < snake.snakeArray[0][x]+snake.snakeArray[0][w] && dots.arrDot[i][y]>snake.snakeArray[0][y] && dots.arrDot[i][y]<snake.snakeArray[0][y]+snake.snakeArray[0][h]){      //有问题
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+
+        }
+
+    </script>
+</body>
+</html>
