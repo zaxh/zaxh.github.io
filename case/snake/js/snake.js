@@ -44,12 +44,11 @@ Snake.prototype.move = function(){
     this.snakeArray.splice(1,0,rect);
 
     //判断是否吃到食物
-    if(isEat){
+    if(isEat()){
 
     }else{
         this.snakeArray.pop();
     }
-
     //判断方向
     switch(this.dir){
         case 37: //left

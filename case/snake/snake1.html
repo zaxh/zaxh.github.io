@@ -6,11 +6,11 @@
     <style>
         *{margin: 0;padding: 0;}
         html,body{overflow: hidden;}
-        canvas{cursor:pointer;}
     </style>
 </head>
 <body>
     <canvas id="canvas"></canvas>
+
     <script src="js/dot.js"></script>
     <script src="js/snake.js"></script>
     <script>
@@ -21,10 +21,12 @@
             arrDot: []
         };
         function init(){
+            alert("请用键盘上的上下左右键控制小蛇方向！！");
             can = document.getElementById("canvas");
             cxt = can.getContext("2d");
             can.width = window.innerWidth;
             can.height = window.innerHeight;
+
             addDot();//添加小球
             animate();//小球变化添加
         }
@@ -36,8 +38,9 @@
             updateDot();
             createSnake();
             moveSnake();
+            gameOver();
         }
-        setInterval(animate,500);
+        var timer = setInterval(animate,500);
         document.onkeydown = function(ev){
             ev = ev || window.event;
             n = ev.keyCode;
@@ -67,15 +70,38 @@
                     break;
             }
         };
+
+        //判断是否吃到食物
         function isEat(){
             for(var i=0;i<dots.arrDot.length;i++){
-                if(dots.arrDot[i][x] > snake.snakeArray[0][x] && dots.arrDot[i][x] < snake.snakeArray[0][x]+snake.snakeArray[0][w] && dots.arrDot[i][y]>snake.snakeArray[0][y] && dots.arrDot[i][y]<snake.snakeArray[0][y]+snake.snakeArray[0][h]){      //有问题
+                if(dots.arrDot[i].x > snake.snakeArray[0].x && dots.arrDot[i].x < snake.snakeArray[0].x+snake.snakeArray[0].w && dots.arrDot[i].y>snake.snakeArray[0].y && dots.arrDot[i].y<snake.snakeArray[0].y+snake.snakeArray[0].h){      //有问题
+                    dots.arrDot.splice(i,1);  //清除别吃掉的小球
+                    dots.num --;            //小球数量减少
                     return true;
                 }else{
-                    return false;
+                    continue;
                 }
             }
-
+        }
+        //判断是否撞墙
+        function gameOver(){
+            if(snake.snakeArray[0].x<0 || snake.snakeArray[0].x>can.width || snake.snakeArray[0].y<0 || snake.snakeArray[0].y > can.height){
+                clearInterval(timer);
+                cxt.clearRect(0,0,can.width,can.height);
+                cxt.translate(can.width/2,can.height/2);
+                cxt.save();
+                cxt.font = "bold 40px Microsoft YaHei";
+                cxt.strokeStyle = "#f00";
+                cxt.textAlign = "center";
+                cxt.strokeText("Game Over~~",0,-40);
+                cxt.restore();
+                cxt.save();
+                cxt.font = "bold 14px Microsoft YaHei";
+                cxt.fillStyle = "#f00";
+                cxt.textAlign = "center";
+                cxt.fillText("小蛇总共吃了"+ (snake.snakeArray.length-4) +"颗食物",0,10);
+                cxt.restore();
+            }
         }
 
     </script>
