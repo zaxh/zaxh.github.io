@@ -1,0 +1,29 @@
+body,html,div,h2,p,section,ul,li,ol,span,a,dl,dt,dd{
+    margin: 0;
+    padding: 0;
+}
+body,html{
+    background: #000;
+    color: #fff;
+}
+li{
+    list-style: none;
+}
+h2{
+    font-size: 18px;
+    color:#008000;
+    margin: 10px 0;
+}
+a{
+    font-size: 12px;
+}
+.wrap{
+    width: 1000px;
+    border: 5px double #ccc;
+    margin: 0 auto;
+    padding: 0 100px 20px;
+    background: #231f1f;
+}
+.wrap .highlight{
+    color: orangered;
+}

@@ -9,7 +9,6 @@
     top: 120px;
     left: 1rem;
     width: 150px;
-    height: 100px;
     overflow: hidden;
 }
 .container .tab-wrap .tab{
@@ -21,9 +20,10 @@
     color: #bbb5b2;
     cursor: pointer;
     background: #444;
+    border-top: 1px solid #ccc;
 }
 .container .tab-wrap .tab:nth-child(1){
-    border-bottom: 1px solid #ccc;
+    border-top: none;
 }
 .container .tab-wrap .tab.active{
     background: #9e9393;

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面试题汇总</title>
+    <link rel="stylesheet" href="../css/base.css">
+</head>
+<body>
+    <div class="wrap">
+        <section>
+            <h2>隐藏元素的几种方法</h2>
+            <ul>
+                <li>display:none;</li>
+                <li>visibility:hidden;</li>
+                <li>height:0;</li>
+                <li>opacity:0;</li>
+                <li>position:absolute;left:-10000px;</li>
+            </ul>
+        </section>
+        <section>
+            <h2>JavaScript中有哪几种数据类型</h2>
+            <p>六种：number，string，boolean，function，object，undefined。</p>
+        </section>
+        <section>
+            <h2>用jquery和原生js获取元素中的内容</h2>
+            <div>
+                <p>JS:document.getElementById("div1").innerHTML;</p>
+                <p>document.querySelector("#div1").innerText;</p>
+                <p>JQ:$("#div1").html();</p>
+            </div>
+        </section>
+        <section>
+            <h2>用原生js封装一个添加监听事件的兼容写法</h2>
+            <textarea name="code" id="code" cols="70" rows="8" disabled>
+                function addEvent(obj,event,fn){
+                    if(window.addEventListener){
+                        obj.addEventListener(event , fn);
+                    }else{
+                        obj.attachEvent("on"+event , fn);
+                    }
+                }
+            </textarea>
+        </section>
+        <section>
+            <h2>对跨域的理解和解决办法</h2>
+            <p>跨域简单的理解即为当前服务器目录下的前端需求要请求非本服务器(本域名)下的后台服务就称为跨域请求。
+            </p>
+            <p>跨域的解决方法：通过script标签请求，或者通过jQuery跨域。（代理，JSONP，XHR2）</p>
+        </section>
+        <section>
+            <h2>Ajax的原理</h2>
+            <p>Ajax的原理简单来说就是通过XMLHttpRequest对象向服务器发送异步请求，从服务器获取数据，然后用JavaScript操作DOM更新页面内容。</p>
+            <p>XMLHttpRequest是Ajax的核心机制，他最早在IE5中被引用，是一种支持异步请求的技术。简单地说，也就是JavaScript可以及时向服务器提出请求和处理响应，而不阻塞用户，达到无刷新效果。</p>
+        </section>
+        <section>
+            <h2>jQuery库中的$()是什么</h2>
+            <p>$()是将任何对象包裹成一个JQuery对象，接着就可以调用被允许的JQuery方法。你甚至可以将一个选择器字符串传入$()函数，它会返回一个包含所有匹配的DOM元素数组的jQuery对象。</p>
+        </section>
+        <section>
+            <h2>JavaScript的window.onload事件和jQuery的ready函数有何不同</h2>
+            <p>JavaScript的window.onload事件和jQuery的ready函数之间的主要区别是，前者除了要等待DOM被创建还要等到包括大型图片、音频、视频在内的所有外部资源都完全加载。如果加载图片和媒体内容花费了大量时间，用户就会感受到定义在window.onload 事件上的代码在执行时有明显的延迟。</p>
+            <p>另一方面，jQuery的ready()函数只需对DOM树的等待，而无需对图像或外部资源加载的等待，从而执行起来更快。使用jQuery $(document).ready()的另一个优势是你可以在网页里多次使用它，浏览器会按它们在HTML页面里出现的顺序执行它们，相反对于onload技术而言，只能在单一函数里使用。鉴于这个好处，用jQuery的ready()函数比用JavaScript的window.onload 事件要更好些。</p>
+        </section>
+        <section>
+            <h2>用原生js封装一个能获取元素到页面最上方和最左侧的函数，再用JQ封装一个同样的函数</h2>
+            <p>原生JS:</p>
+            <textarea name="js" id="js" cols="70" rows="15" disabled>
+                function getPosition(obj){
+                    var t,l;
+                    while(obj){
+                        t += obj.offsetTop;
+                        l += obj.offsetLeft;
+                        obj = obj.offsetParent;
+                    }
+                    return {
+                        "top": t,
+                        "left": l
+                    }
+                }
+            </textarea>
+            <p>JQ:$().offset().left;$().offset().top</p>
+        </section>
+        <section>
+            <h2 class="highlight">如何实现一个EventEmitter</h2>
+            <p>主要分三步：定义一个子类，调用构造函数，继承EventEmitter。<a href="http://www.runoob.com/nodejs/nodejs-event.html">了解EventEmitter</a></p>
+        </section>
+        <section>
+            <h2 class="highlight">如何通过stream实现一个文件的复制</h2>
+            <textarea name="stream" id="stream" cols="70" rows="12" disabled>
+                var util = require('util');
+                var EventEmitter = require('events');
+                function MyEmitter(){
+                    EventEmitter.call(this);
+                } // 构造函数
+                util.inherits(MyEmitter, EventEmitter); // 继承
+                var em = new MyEmitter();
+                em.on('hello', function(data){
+                    console.log('收到事件hello的数据:', data);
+                }); // 接收事件，并打印到控制台
+                em.emit('hello', 'EventEmitter传递消息真方便!');
+            </textarea>
+        </section>
+        <section>
+            <h2 class="highlight">如何理解node的同步和异步</h2>
+            <p>同步模式”就是上一段的模式，后一个任务等待前一个任务结束，然后再执行，程序的执行顺序与任务的排列顺序是一致的、同步的；”异步模式”则完全不同，每一个任务有一个或多个回调函数（callback），前一个任务结束后，不是执行后一个任务，而是执行回调函数，后一个任务则是不等前一个任务结束就执行，所以程序的执行顺序与任务的排列顺序是不一致的、异步的。</p>
+            <p>使用node构建一个服务器并对向”/post”发起的post请求进行处理，要求拿到post请求传输的数据（不包括文件上传）</p>
+            <textarea name="node" id="node" cols="70" rows="17" disabled>
+                var http = require("http");
+                var queryString = require("querystring");
+                var server = http.createServer(function(req,res){
+                    if(urlObj.pathname == "/post"){
+                          var str = "";
+                       req.on("data",function(chunk){
+                             str+=chunk;
+                         });
+                         req.on("end",function(){
+                               var query = queryString.parse(str);
+                              console.log(query);
+                         })
+                       res.end("你请求的地址是"+urlObj.pathname);
+                    }
+                });
+                server.listen(8080);
+            </textarea>
+        </section>
+        <section>
+            <h2 class="highlight">用node模拟客户端发起请求</h2>
+            <textarea name="req" id="req" cols="70" rows="15" disabled>
+                var http = require("http");
+                var request = http.request({
+                    host:"localhost",
+                    port:"8080",
+                    path:"/request",
+                    method:"post"
+                },function(res){
+                    res.on("data",function(chunk){
+                        console.log(chunk.toString());
+                    });
+                });
+                request.write("user=zhang&pass=111");
+                request.end("请求结束");//结束本次请求
+            </textarea>
+        </section>
+        <section>
+            <h2 class="highlight">图片预加载的意义和原理</h2>
+            <p>预加载图片是提高用户体验的一个很好方法。图片预先加载到浏览器中，这对图片画廊及图片占据很大比例的网站来说十分有利，它保证了图片快速、无缝地发布，也可帮助用户在浏览网站内容时获得更好的用户体验。</p>
+            <p>实例代码：</p>
+            <textarea name="img" id="img" cols="100" rows="25" disabled>
+                //obj.imgArr 图片数组
+                //obj.loadingProgress 加载进度
+                //obj.loadingOver 加载结果
+                (function(){
+                        var imgObjs = [];
+                        loadingFn = function(obj){
+                                var index = 0;
+                                for (var i = 0; i < obj.imgArr.length; i++) {
+                                        var imgObj = new Image();
+                                        imgObj.onload = function(){
+                                                index++;
+                                                imgObjs.push(this);
+                                                if (obj.loadingProgress){
+                                                        obj.loadingProgress(index, this);
+                                                }
+                                                if (index > obj.imgArr.length-1){
+                                                        obj.loadingOver(imgObjs);
+                                                }
+                                        }
+                                        imgObj.src = obj.imgArr[i];
+                                }
+                                console.log(obj);
+                        }
+            </textarea>
+        </section>
+        <section>
+            <h2>浏览器页面有哪三层构成，分别是什么，作用是什么?</h2>
+            <p>结构层：HTML，页面结构组成；表示层：CSS，页面样式风格展现；行为层：JavaScript，实现客户端的功能和业务。</p>
+        </section>
+        <section>
+            <h2>什么是语义化的HTML?</h2>
+            <p>直观的认识标签，对于搜索引擎的抓取有好处，用正确的标签做正确的事情！
+                html语义化就是让页面的内容结构化，便于对浏览器、搜索引擎解析，在没有样式CCS情况下也以一种文档格式显示，并且是容易阅读的。搜索引擎的爬虫依赖于标记来确定上下文和各个关键字的权重，利于SEO。使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。</p>
+        </section>
+        <section>
+            <h2>CSS居中（包括水平居中和垂直居中）</h2>
+            <textarea name="con" id="con" cols="100" rows="35" disabled style="text-align:left;">
+                水平居中设置:
+                1.行内元素
+                设置 text-align:center；
+                2.Flex布局
+                设置display:flex;justify-content:center;(灵活运用,支持Chroime，Firefox，IE9+)
+
+                垂直居中设置：
+                1.父元素高度确定的单行文本（内联元素）
+                设置 height = line-height；
+                2.父元素高度确定的多行文本（内联元素）
+                a:插入 table （插入方法和水平居中一样），然后设置 vertical-align:middle；
+                b:先设置 display:table-cell 再设置 vertical-align:middle；
+
+                块级元素居中方案
+                水平居中设置：
+                1.定宽块状元素
+                设置 左右 margin 值为 auto；
+                2.不定宽块状元素
+                a:在元素外加入 table 标签（完整的，包括 table、tbody、tr、td），该元素写在 td 内，然后设置 margin 的值为 auto；
+                b:给该元素设置 displa:inine 方法；
+                c:父元素设置 position:relative 和 left:50%，子元素设置 position:relative 和 left:50%；
+
+                垂直居中设置：
+                使用position:absolute（fixed）,设置left、top、margin-left、margin-top的属性;
+                利用position:fixed（absolute）属性，margin:auto这个必须不要忘记了;
+                利用display:table-cell属性使内容垂直居中;
+                使用css3的新属性transform:translate(x,y)属性;
+                使用:before元素;
+            </textarea>
+        </section>
+        <section>
+            <h2>CSS3有哪些新特性？</h2>
+            <p>CSS3实现圆角（border-radius: 8px），阴影（box-shadow: 10px），
+                对文字加特效（text-shadow），线性渐变（gradient），变换（transform）
+                transform:rotate(9deg) scale(0.85,0.90) translate(0px,-30px) skew(-9deg,0deg);//旋转,缩放,定位,倾斜
+                还增加了更多的CSS选择器，多背景，rgba等</p>
+        </section>
+        <section>
+            <h2 class="highlight">事件委托是什么？</h2>
+            <p>利用事件冒泡的原理，使自己的所触发的事件，让它的父元素代替执行！</p>
+        </section>
+        <section>
+            <h2 class="highlight">什么叫优雅降级和渐进增强？</h2>
+            <p>优雅降级:Web站点在所有新式浏览器中都能正常工作，如果用户使用的是老式浏览器，则代码会检查以确认它们是否能正常工作。由于IE独特的盒模型布局问题，针对不同版本的IE的hack实践过优雅降级了,为那些无法支持功能的浏览器增加候选方案，使之在旧式浏览器上以某种形式降级体验却不至于完全失效。</p>
+            <p>渐进增强：从被所有浏览器支持的基本功能开始，逐步地添加那些只有新式浏览器才支持的功能,向页面增加无害于基础浏览器的额外样式和功能的。当浏览器支持时，它们会自动地呈现出来并发挥作用。</p>
+        </section>
+        <section>
+            <h2 class="highlight">JavaScript原型，原型链都是什么? 有什么特点？</h2>
+            <p>原型对象也是普通的对象，是对象一个自带隐式的 proto 属性，原型也有可能有自己的原型，如果一个原型对象的原型不为null的话，我们就称之为原型链。
+                原型链是由一些用来继承和共享属性的对象组成的（有限的）对象链。</p>
+        </section>
+        <section>
+            <h2 class="highlight">如何阻止事件冒泡和默认事件</h2>
+            <textarea name="event" id="event" cols="70" rows="10" disabled>
+                阻止冒泡:
+                现代浏览器:e.stopPropagation
+                低版本浏览器:e.cancelBubble=true
+                阻止默认事件:
+                现代浏览器:e.preventDefult()
+                低版本浏览器:return false
+            </textarea>
+        </section>
+        <section>
+            <h2 class="highlight">iOS苹果和微信中音频和视频实现自动播放的方法</h2>
+            <textarea name="fn" id="fn" cols="70" rows="10" disabled>
+                //一般情况下，这样就可以自动播放了，但是一些奇葩iPhone机不可以
+                document.getElementById('audio').play();
+                //必须在微信Weixin JSAPI的WeixinJSBridgeReady才能生效
+                document.addEventListener("WeixinJSBridgeReady", function(){
+                    document.getElementById('audio').play();
+                    document.getElementById('video').play();
+                }, false);
+            </textarea>
+        </section>
+        <section>
+            <h2 class="highlight">解释GET/POST的区别</h2>
+            <p>GET请求，请求的数据会附加在URL之后，以?分割URL和传输数据，多个参数用&连接。URL的编码格式采用的是ASCII编码，而不是uniclde，即是说所有的非ASCII字符都要编码之后再传输。
+                POST请求：POST请求会把请求的数据放置在HTTP请求包的包体中。
+                因此，GET请求的数据会暴露在地址栏中，而POST请求则不会。</p>
+            <p>关于传输数据的大小
+                在HTTP规范中，没有对URL的长度和传输的数据大小进行限制。但是在实际开发过程中，对于GET，特定的浏览器和服务器对URL的长度有限制。因此，在使用GET请求时，传输数据会受到URL长度的限制。
+                对于POST，由于不是URL传值，理论上是不会受限制的，但是实际上各个服务器会规定对POST提交数据大小进行限制，Apache、IIS都有各自的配置。</p>
+            <p>关于安全性
+                Get是Form的默认方法，安全性相对比较低</p>
+        </section>
+        <section>
+            <h2 class="highlight">描述一下cookies，sessionStorage和localStorage的区别</h2>
+            <p>sessionStorage和localStorage是HTML5 Web Storage API提供的，可以方便的在Web请求之间保存数据，有了本地数据，这样避免了数据在服务器与浏览器之间来回传递。</p>
+            <p>sessionStorage、localStorage、cookie都是在浏览器端存储的数据，其中 sessionStorage的概念很特别，引入了一个“浏览器窗口”的概念。sessionStorage 是在同源的同窗口（或tab）中，始终存在的数据。也就是说只要这个浏览器窗口没有关闭，即使刷新页面或进入同源另一页面，数据仍然存在。关闭窗口后，sessionStorage即被销毁。同时“独立”打开的不同窗口，即使是同一页面， sessionStorage对象也是不同的。cookies会发送到服务器端。其余两个不会。</p>
+            <p>Microsoft指出Internet Explorer 8增加cookie限制为每个域名50个，但IE7似乎也允许每个域名50个cookie。Firefox每个域名cookie限制为50个。Opera每个域名cookie限制为30个。Firefox和Safari允许cookie多达4097个字节，包括名name）、值（value）和等号。Opera许cookie多达4096个字节，包括：名（name）、值（value）和等号。Internet Explorer允许cookie多达4095 个字节，包括：名（name）、值（value）和等号。</p>
+            <p>区别：</p>
+            <dl>
+                <dt>Cookie:</dt>
+                <dd>每个域名存储量比较小（各浏览器不同，大致 4K ）</dd>
+                <dd>所有域名的存储量有限制（各浏览器不同，大致 4K ）</dd>
+                <dd>有个数限制（各浏览器不同）</dd>
+                <dd>会随请求发送到服务器</dd>
+                <dt>LocalStorage:</dt>
+                <dd>永久存储</dd>
+                <dd>单个域名存储量比较大（推荐 5MB ，各浏览器不同）</dd>
+                <dd>总体数量无限制</dd>
+                <dt>SessionStorage:</dt>
+                <dd>只在Session内有效</dd>
+                <dd>存储量更大（推荐没有限制，但是实际上各浏览器也不同）</dd>
+            </dl>
+        </section>
+        <section>
+            <h2 class="highlight">image和canvas在处理图片的时候有什么区别？</h2>
+            <p>image是通过对象的形式描述图片的。
+                canvas通过专门的API将图片绘制在画布上。</p>
+        </section>
+        <section>
+            <h2 class="highlight">响应式布局的时候，轮播图使用两张不同的图片去适配大屏幕和超小屏幕，还是一张图片进行压缩适配不同终端，说明原因？</h2>
+            <p>最好使用两张不同大小的图片去适配大屏幕和超小屏幕，这样可以针对不同设备的屏幕大小，来加载响应的图片，减少超小屏幕设备的网络流量消耗，加快响应速度，同时防止图片在大屏幕下分辨率不够导致失真的问题。</p>
+        </section>
+    </div>
+</body>
+</html>
