@@ -74,8 +74,19 @@ body,html{
     transition: transform 2s ;
 }
 .wrap ul.cards li.cards-item>img.load{
+    z-index: 1;
+    -webkit-transition: rotateY(180deg);
+    -moz-transition: rotateY(180deg) ;
+    -ms-transition: rotateY(180deg) ;
+    -o-transition: rotateY(180deg) ;
+    transition: rotateY(180deg) ;
+}
+.wrap ul.cards li.cards-item>img.card{
     z-index:2;
-    backface-visibility:none;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 .wrap ul.cards li.cards-item:nth-child(1){
     -webkit-transform: translateY(100px) rotate(-30deg);
