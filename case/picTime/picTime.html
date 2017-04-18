@@ -48,25 +48,25 @@
 </head>
 <body>
 <ul class="wrap">
-    <li><div><img src="img/0.jpg" alt=""></div></li>
-    <li><div><img src="img/0.jpg" alt=""></div></li>
-    <li><div><img src="img/0.jpg" alt=""></div></li>
-    <li><div><img src="img/0.jpg" alt=""></div></li>
+    <li><div><img src="img/0.JPG" alt=""></div></li>
+    <li><div><img src="img/0.JPG" alt=""></div></li>
+    <li><div><img src="img/0.JPG" alt=""></div></li>
+    <li><div><img src="img/0.JPG" alt=""></div></li>
     <li><span>年</span></li>
-    <li><div><img src="img/0.jpg" alt=""></div></li>
-    <li><div><img src="img/0.jpg" alt=""></div></li>
+    <li><div><img src="img/0.JPG" alt=""></div></li>
+    <li><div><img src="img/0.JPG" alt=""></div></li>
     <li><span>月</span></li>
-    <li><div><img src="img/0.jpg" alt=""></div></li>
-    <li><div><img src="img/0.jpg" alt=""></div></li>
+    <li><div><img src="img/0.JPG" alt=""></div></li>
+    <li><div><img src="img/0.JPG" alt=""></div></li>
     <li><span>日</span></li>
-    <li><div><img src="img/0.jpg" alt=""></div></li>
-    <li><div><img src="img/0.jpg" alt=""></div></li>
+    <li><div><img src="img/0.JPG" alt=""></div></li>
+    <li><div><img src="img/0.JPG" alt=""></div></li>
     <li><span class="dot">:</span></li>
-    <li><div><img src="img/0.jpg" alt=""></div></li>
-    <li><div><img src="img/0.jpg" alt=""></div></li>
+    <li><div><img src="img/0.JPG" alt=""></div></li>
+    <li><div><img src="img/0.JPG" alt=""></div></li>
     <li><span class="dot">:</span></li>
-    <li><div><img src="img/0.jpg" alt=""></div></li>
-    <li><div><img src="img/0.jpg" alt=""></div></li>
+    <li><div><img src="img/0.JPG" alt=""></div></li>
+    <li><div><img src="img/0.JPG" alt=""></div></li>
 </ul>
 <script src="doMove.js"></script>
 <script>
@@ -116,10 +116,10 @@
         //更换图片切换为当前时间
         for(var j=0;j<str.length;j++ ){
             if(strPrev[j] !== str[j]){
-                oDiv[j].innerHTML ="<img src='img/"+ parseInt(arrayPrev[j]) +".jpg' alt=''><img src='img/"+ parseInt(array[j]) +".jpg' alt=''>";
+                oDiv[j].innerHTML ="<img src='img/"+ parseInt(arrayPrev[j]) +".jpg' alt=''><img src='img/"+ parseInt(array[j]) +".JPG' alt=''>";
                 xmt.doMove( oDiv[j].getElementsByTagName('img')[0] , "top" ,  -80 , 7 , xmt.doMove(oDiv[j].getElementsByTagName('img')[1] , "top" , 0 , 7)  ) ;
             }else{
-                oDiv[j].innerHTML = "<img src='img/"+ parseInt(arrayPrev[j]) +".jpg' alt=''>";
+                oDiv[j].innerHTML = "<img src='img/"+ parseInt(arrayPrev[j]) +".JPG' alt=''>";
             }
         }
     }
