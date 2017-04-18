@@ -116,7 +116,7 @@
         //更换图片切换为当前时间
         for(var j=0;j<str.length;j++ ){
             if(strPrev[j] !== str[j]){
-                oDiv[j].innerHTML ="<img src='img/"+ parseInt(arrayPrev[j]) +".jpg' alt=''><img src='img/"+ parseInt(array[j]) +".JPG' alt=''>";
+                oDiv[j].innerHTML ="<img src='img/"+ parseInt(arrayPrev[j]) +".JPG' alt=''><img src='img/"+ parseInt(array[j]) +".JPG' alt=''>";
                 xmt.doMove( oDiv[j].getElementsByTagName('img')[0] , "top" ,  -80 , 7 , xmt.doMove(oDiv[j].getElementsByTagName('img')[1] , "top" , 0 , 7)  ) ;
             }else{
                 oDiv[j].innerHTML = "<img src='img/"+ parseInt(arrayPrev[j]) +".JPG' alt=''>";
