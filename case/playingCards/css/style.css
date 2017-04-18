@@ -1,6 +1,10 @@
 body,html,div,h2,p,section,ul,li,ol,span,a,dl,dt,dd,nav,input,select,button{
     margin: 0;
     padding: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 li{
     list-style: none;
@@ -18,6 +22,7 @@ em,i{
 }
 /********** main style **********************************************/
 body,html{
+    position: relative;
     height: 100%;
     background: darkgreen;
     font-size: 12px;
@@ -50,43 +55,48 @@ body,html{
     margin: 160px auto;
 }
 .wrap ul.cards li.cards-item{
-    position: relative;
     float: left;
     width: 200px;
     height: 250px;
     margin: 0 20px;
 }
-.wrap ul.cards li.cards-item>img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    -webkit-transform: rotateY(0deg);
-    -moz-transform: rotateY(0deg);
-    -ms-transform: rotateY(0deg);
-    -o-transform: rotateY(0deg);
-    transform: rotateY(0deg);
+.wrap ul.cards li.cards-item>a{
+    position: relative;
+    display: block;
+    width: 200px;
+    height: 250px;
+    -moz-perspective: 800px;
+    -webkit-perspective: 800px;
+    perspective: 800px;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
     -webkit-transition: transform 2s;
     -moz-transition: transform 2s ;
     -ms-transition: transform 2s ;
     -o-transition: transform 2s ;
     transition: transform 2s ;
 }
-.wrap ul.cards li.cards-item>img.load{
-    z-index: 1;
-    -webkit-transition: rotateY(180deg);
-    -moz-transition: rotateY(180deg) ;
-    -ms-transition: rotateY(180deg) ;
-    -o-transition: rotateY(180deg) ;
-    transition: rotateY(180deg) ;
+.wrap ul.cards li.cards-item>a>img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
-.wrap ul.cards li.cards-item>img.card{
-    z-index:2;
+.wrap ul.cards li.cards-item>a>img.load{
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     -ms-backface-visibility: hidden;
     backface-visibility: hidden;
+}
+.wrap ul.cards li.cards-item>a>img.card{
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
 }
 .wrap ul.cards li.cards-item:nth-child(1){
     -webkit-transform: translateY(100px) rotate(-30deg);
@@ -131,7 +141,7 @@ body,html{
 }
 .wrap .tool .btn{
     display: inline-block;
-    width: 60px;
+    width: 100px;
     height: 30px;
     line-height: 30px;
     letter-spacing: 5px;
