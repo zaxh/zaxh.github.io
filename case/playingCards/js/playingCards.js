@@ -31,7 +31,7 @@ $(document).ready(function(){
                 $("#surplus").html( init.surCount - 1 );
                 calculate();
             }else{
-                alert("兑换次数已用尽！");
+                alert("游戏结束，请刷新页面重新开始！");
             }
         }else{
             $score.html( parseInt($score.html())+init.score );
@@ -59,7 +59,7 @@ $(document).ready(function(){
                     $("#exchange").html( init.exCount - 1 );
                     calculate();
                 }else{
-                    alert("游戏结束，请刷新页面重新开始！");
+                    alert("兑换次数已用尽！");
                 }
             }
 
